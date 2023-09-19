@@ -18,13 +18,23 @@ def emotion_detector(text_to_analyse):
 
     dominant_value = key[value.index(max(value))]
 
-    emotions = {
+    if resp.status_code == 200:
+        emotions = {
         "anger" : anger_score,
         "disgust" : disgust_score,
         "fear" : fear_score,
         "joy" : joy_score,
         "sadness" : sadness_score,
         "dominant_emotion" : dominant_value
+    }
+    elif resp.status_code == 400:
+        emotions = {
+        "anger" : None,
+        "disgust" : None,
+        "fear" : None,
+        "joy" : None,
+        "sadness" : None,
+        "dominant_emotion" : None
     }
 
     return emotions
