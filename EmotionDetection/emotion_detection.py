@@ -15,6 +15,7 @@ def emotion_detector(text_to_analyse):
 
     key = list(fmt_resp['emotionPredictions'][0]['emotion'].keys())
     value =  list(fmt_resp['emotionPredictions'][0]['emotion'].values())
+
     dominant_value = key[value.index(max(value))]
 
     emotions = {
